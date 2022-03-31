@@ -6,6 +6,8 @@ public class playerMovement : MonoBehaviour
 {
     public float JumpPower;
     public LayerMask Mask;
+    public Animator PlayerAnimator;
+
 
     private bool _isGrounded;
     private Rigidbody2D RB;
@@ -24,11 +26,22 @@ public class playerMovement : MonoBehaviour
 
         _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, DistanceToGround + 0.5f, Mask);
 
-        if (Input.GetKeyDown(KeyCode.W) && _isGrounded == true)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && _isGrounded == true)
         {
             RB.AddForce(new Vector2(0, JumpPower));
             _isGrounded = false;
-
         }
+
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            PlayerAnimator.SetBool("DownArrow", true);
+        }
+        else if ((Input.GetKeyUp(KeyCode.DownArrow)))
+        {
+            PlayerAnimator.SetBool("DownArrow", false);
+        }
+
+
     }
 }
