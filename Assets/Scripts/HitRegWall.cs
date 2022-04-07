@@ -19,6 +19,9 @@ public class HitRegWall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        WallHitBox.SetActive(!MovementScript.IsBallBig);
+        if (MovementScript.IsBallBig && MovementScript.Touching)
+        {
+            WallHitBox.SetActive(false);
+        }
     }
 }
