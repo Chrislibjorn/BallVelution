@@ -9,7 +9,7 @@ public class playerMovement : MonoBehaviour
     public Animator PlayerAnimator;
     public bool IsBallBig = false;
     public bool Touching = false;
-    private bool _isGrounded;
+    public bool _isGrounded;
     private Rigidbody2D RB;
 
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class playerMovement : MonoBehaviour
 
         float DistanceToGround = GetComponent<Collider2D>().bounds.extents.y;
 
-        _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, DistanceToGround + 0.5f, Mask);
+        _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, DistanceToGround + 0.03f, Mask);
 
         if (Input.GetAxis("Vertical") > 0.01 && _isGrounded == true)
         {
@@ -50,10 +50,10 @@ public class playerMovement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D Coinfo)
     {
-        if(Coinfo.tag=="Teleport")
+        if (Coinfo.tag == "Teleport")
         {
-        Vector2 move = new Vector2(14, -11);
-        RB.MovePosition(move);
+            Vector2 move = new Vector2(14, -11);
+            RB.MovePosition(move);
         }
     }
 }
