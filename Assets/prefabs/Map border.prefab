@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8529214081349980320}
   m_Layer: 0
   m_Name: Map border
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 7239392351592256292}
   m_Layer: 0
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall L
       objectReference: {fileID: 0}
+    - target: {fileID: 117471829105352415, guid: acec6ebbcde3fa54080a8fef1bf46fba, type: 3}
+      propertyPath: m_TagString
+      value: Border
+      objectReference: {fileID: 0}
     - target: {fileID: 117471829105352483, guid: acec6ebbcde3fa54080a8fef1bf46fba, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -204,6 +208,10 @@ PrefabInstance:
     - target: {fileID: 117471829105352415, guid: acec6ebbcde3fa54080a8fef1bf46fba, type: 3}
       propertyPath: m_Name
       value: wall R
+      objectReference: {fileID: 0}
+    - target: {fileID: 117471829105352415, guid: acec6ebbcde3fa54080a8fef1bf46fba, type: 3}
+      propertyPath: m_TagString
+      value: Border
       objectReference: {fileID: 0}
     - target: {fileID: 117471829105352483, guid: acec6ebbcde3fa54080a8fef1bf46fba, type: 3}
       propertyPath: m_RootOrder

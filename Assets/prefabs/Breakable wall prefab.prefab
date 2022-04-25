@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7028753697663080169
+--- !u!1 &3259076193962871729
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7028753697663080183}
-  - component: {fileID: 7028753697663080168}
+  - component: {fileID: 324777866523075414}
+  - component: {fileID: 6296938591717796458}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: Obstacle
@@ -17,27 +17,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7028753697663080183
+--- !u!4 &324777866523075414
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7028753697663080169}
+  m_GameObject: {fileID: 3259076193962871729}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7028753699489233662}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &7028753697663080168
+--- !u!61 &6296938591717796458
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7028753697663080169}
+  m_GameObject: {fileID: 3259076193962871729}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -55,7 +55,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.3, y: 4.9}
+  m_Size: {x: 5, y: 1.7}
   m_EdgeRadius: 0
 --- !u!1 &7028753698119144870
 GameObject:
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 7028753698119144868}
   m_Layer: 0
   m_Name: rocks
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -723,7 +723,7 @@ ParticleSystem:
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 90, z: 0}
+    m_Rotation: {x: 90, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -4933,7 +4933,7 @@ GameObject:
   - component: {fileID: 7028753699199366664}
   m_Layer: 0
   m_Name: rock wall
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4951,7 +4951,7 @@ Transform:
   m_Children:
   - {fileID: 7028753698119144869}
   m_Father: {fileID: 7028753699489233662}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -180, y: -90, z: 90}
 --- !u!198 &7028753699199366679
 ParticleSystem:
@@ -5587,7 +5587,7 @@ ParticleSystem:
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 0}
+    m_Rotation: {x: 0, y: 90, z: 0}
     m_Scale: {x: 4, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -9796,7 +9796,7 @@ GameObject:
   - component: {fileID: 7028753699489233663}
   m_Layer: 0
   m_Name: Breakable wall prefab
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9812,8 +9812,8 @@ Transform:
   m_LocalPosition: {x: 4, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7028753697663080183}
   - {fileID: 7028753699199366665}
+  - {fileID: 324777866523075414}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9830,4 +9830,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  WallHitBox: {fileID: 7028753697663080169}
+  WallHitBox: {fileID: 3259076193962871729}

@@ -8,9 +8,11 @@ public class playerMovement : MonoBehaviour
     public LayerMask Mask;
     public Animator PlayerAnimator;
     public bool IsBallBig = false;
-    public bool Touching = false;
-    public bool _isGrounded;
+    private bool _isGrounded;
+
+    public GameObject RockWalls;
     private Rigidbody2D RB;
+    private float TempX;
 
     // Start is called before the first frame update
     void Start()
@@ -33,27 +35,28 @@ public class playerMovement : MonoBehaviour
             _isGrounded = false;
         }
 
-        IsBallBig = Input.GetAxis("Vertical") < -0.5;
-
-        PlayerAnimator.SetBool("DownArrow", !IsBallBig);
-
-    }
-    private void OnCollisionEnter2D(Collision2D CoInfo)
-    {
-        if (CoInfo.collider.tag == "Obstacle")
-            Touching = true;
-    }
-    private void OnCollisionExit2D(Collision2D CoInfo)
-    {
-        if (CoInfo.collider.tag == "Obstacle")
-            Touching = false;
-    }
-    private void OnTriggerEnter2D(Collider2D Coinfo)
-    {
-        if (Coinfo.tag == "Teleport")
+        if (Input.GetAxis("Vertical") < -0.5)
         {
-            Vector2 move = new Vector2(14, -11);
-            RB.MovePosition(move);
+            PlayerAnimator.SetBool("DownArrow", false);
         }
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D CoInfo)
+    {
+        if (CoInfo.gameObject.CompareTag("Teleport"))
+        {
+            TempX = RB.transform.position.x;
+            Vector2 move = new Vector2(TempX, 10);
+            RB.MovePosition(move);
+            RockWalls.SetActive(false);
+            RockWalls.SetActive(true);
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D CoInfo)
+    {
+        if (CoInfo.gameObject.CompareTag("ground"))
+            PlayerAnimator.SetBool("DownArrow", true);
     }
 }

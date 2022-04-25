@@ -7,6 +7,7 @@ TagManager:
   - ground
   - Obstacle
   - Teleport
+  - Border
   layers:
   - Default
   - TransparentFX
