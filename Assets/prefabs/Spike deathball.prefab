@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike deathball
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7122d48a3a8607f4bbc9977f495dc1c4, type: 3}
+      propertyPath: m_TagString
+      value: Dead
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7122d48a3a8607f4bbc9977f495dc1c4, type: 3}
 --- !u!1 &4096861428179543061 stripped
@@ -150,15 +154,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-7884764563440835328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4096861428179543061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050123cd9a422a74f8472f001538f2f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
