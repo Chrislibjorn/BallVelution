@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerMovement : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class playerMovement : MonoBehaviour
     public LayerMask Mask;
     public Animator PlayerAnimator;
     public bool IsBallBig = false;
+    public bool Dead = false;
     private bool _isGrounded;
 
     public GameObject RockWalls;
@@ -39,6 +41,9 @@ public class playerMovement : MonoBehaviour
         {
             PlayerAnimator.SetBool("DownArrow", false);
         }
+
+        if(Dead==true)
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 
@@ -59,4 +64,14 @@ public class playerMovement : MonoBehaviour
         if (CoInfo.gameObject.CompareTag("ground"))
             PlayerAnimator.SetBool("DownArrow", true);
     }
+    private void OnCollisionEnter2D(Collision2D CoInfo)
+    {
+        if (CoInfo.gameObject.CompareTag("Dead"))
+            {
+            PlayerAnimator.SetBool("Dead", true);
+            } else {
+            PlayerAnimator.SetBool("Dead", false);
+            }
+
+    } 
 }
