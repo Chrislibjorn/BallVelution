@@ -12,6 +12,8 @@ public class playerMovement : MonoBehaviour
     public bool Dead = false;
     private bool _isGrounded;
 
+    private bool PAlive = true;
+
     public GameObject RockWalls;
     private Rigidbody2D RB;
     private float TempX;
@@ -31,19 +33,19 @@ public class playerMovement : MonoBehaviour
 
         _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, DistanceToGround + 0.03f, Mask);
 
-        if (Input.GetAxis("Vertical") > 0.01 && _isGrounded == true)
+        if (Input.GetAxis("Vertical") > 0.01 && _isGrounded == true && PAlive)
         {
             RB.AddForce(new Vector2(0, JumpPower));
             _isGrounded = false;
         }
 
-        if (Input.GetAxis("Vertical") < -0.5)
+        if (Input.GetAxis("Vertical") < -0.5&&PAlive)
         {
             PlayerAnimator.SetBool("DownArrow", false);
         }
 
-        if(Dead==true)
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (Dead == true)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 
@@ -67,11 +69,14 @@ public class playerMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D CoInfo)
     {
         if (CoInfo.gameObject.CompareTag("Dead"))
-            {
+        {
+            PAlive = false;
             PlayerAnimator.SetBool("Dead", true);
-            } else {
+        }
+        else
+        {
             PlayerAnimator.SetBool("Dead", false);
-            }
+        }
 
-    } 
+    }
 }
