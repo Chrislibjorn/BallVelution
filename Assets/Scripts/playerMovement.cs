@@ -39,7 +39,7 @@ public class playerMovement : MonoBehaviour
             _isGrounded = false;
         }
 
-        if (Input.GetAxis("Vertical") < -0.5&&PAlive)
+        if (Input.GetAxis("Vertical") < -0.5 && PAlive)
         {
             PlayerAnimator.SetBool("DownArrow", false);
         }
