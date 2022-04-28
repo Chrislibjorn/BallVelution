@@ -33,13 +33,13 @@ public class playerMovement : MonoBehaviour
 
         _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, DistanceToGround + 0.03f, Mask);
 
-        if (Input.GetAxis("Vertical") > 0.01 && _isGrounded == true && PAlive)
+        if (Input.GetAxis("Vertical") > 0.1 && _isGrounded == true && PAlive)
         {
             RB.AddForce(new Vector2(0, JumpPower));
             _isGrounded = false;
         }
 
-        if (Input.GetAxis("Vertical") < -0.5 && PAlive)
+        if (Input.GetAxis("Vertical") < -0.1 && PAlive)
         {
             PlayerAnimator.SetBool("DownArrow", false);
         }
