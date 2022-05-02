@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class playerMovement : MonoBehaviour
 {
@@ -10,11 +11,16 @@ public class playerMovement : MonoBehaviour
     public Animator PlayerAnimator;
     public bool IsBallBig = false;
     public bool Dead = false;
+    public int level = 1;
     private bool _isGrounded;
 
     private bool PAlive = true;
-
+    public TextMeshProUGUI LevelText;
+    public GameObject WorldLight;
+    public GameObject Lamps;
     public GameObject RockWalls;
+    public GameObject Spikes;
+    public GameObject Runsav;
     private Rigidbody2D RB;
     private float TempX;
 
@@ -22,6 +28,8 @@ public class playerMovement : MonoBehaviour
     void Start()
     {
         RB = GetComponent<Rigidbody2D>();
+        if(LevelText!=null)
+        LevelText.text="Level: "+level;
     }
 
     // Update is called once per frame
@@ -33,13 +41,13 @@ public class playerMovement : MonoBehaviour
 
         _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, DistanceToGround + 0.03f, Mask);
 
-        if (Input.GetAxis("Vertical") > 0.1 && _isGrounded == true && PAlive)
+        if (Input.GetAxis("Vertical") > 0.1 && _isGrounded == true && PAlive && level > 2)
         {
             RB.AddForce(new Vector2(0, JumpPower));
             _isGrounded = false;
         }
 
-        if (Input.GetAxis("Vertical") < -0.1 && PAlive)
+        if (Input.GetAxis("Vertical") < -0.1 && PAlive && level > 3)
         {
             PlayerAnimator.SetBool("DownArrow", false);
         }
@@ -53,11 +61,29 @@ public class playerMovement : MonoBehaviour
     {
         if (CoInfo.gameObject.CompareTag("Teleport"))
         {
+            level += 1;
+            LevelText.text="Level: "+level;
             TempX = RB.transform.position.x;
             Vector2 move = new Vector2(TempX, 10);
             RB.MovePosition(move);
-            RockWalls.SetActive(false);
-            RockWalls.SetActive(true);
+            if (level > 1)
+            {
+                WorldLight.SetActive(false);
+                Lamps.SetActive(true);
+            }
+            if (level > 2)
+            {
+                Spikes.SetActive(true);
+            }
+            if (level > 3)
+            {
+                RockWalls.SetActive(false);
+                RockWalls.SetActive(true);
+            }
+            if (level > 4)
+            {
+                Runsav.SetActive(true);
+            }
         }
     }
 
