@@ -7,11 +7,23 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
-    guid: 78324101f79f8bc49bea0741f191aae1
+    guid: c1a5383f155e2244b8c89da52711bbe2
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
+    path: Assets/Scenes/Spil-demo.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Level 2.unity
-    guid: 133b2f5f8532a524d821b91e282dc495
+    path: Assets/Scenes/Hop.unity
+    guid: 1013c4b0e41a7554c82b3531e28dff78
+  - enabled: 1
+    path: Assets/Scenes/Gravity&Spike.unity
+    guid: 170ba3b93612e6a4ca2a3168571464d7
+  - enabled: 1
+    path: Assets/Scenes/Break wall.unity
+    guid: bdf22003b12c29842b8f36bf8b1567e4
+  - enabled: 1
+    path: Assets/Scenes/Lamp.unity
+    guid: 0d366707ec52f7b4581443903582544f
+  - enabled: 1
+    path: Assets/Scenes/Rundsav.unity
+    guid: 438e08b2153469146bac9b8c6e30f649
   m_configObjects: {}
