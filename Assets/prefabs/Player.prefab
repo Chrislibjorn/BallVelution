@@ -4998,14 +4998,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cdd024d914cf204aaca23c3cba944b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpPower: 400
+  JumpPower: 150
   Mask:
     serializedVersion: 2
     m_Bits: 8
   PlayerAnimator: {fileID: 5345749637546309037}
   IsBallBig: 0
   Dead: 0
+  level: 1
+  LevelText: {fileID: 0}
+  WorldLight: {fileID: 0}
+  Lamps: {fileID: 0}
   RockWalls: {fileID: 0}
+  Spikes: {fileID: 0}
+  Runsav: {fileID: 0}
 --- !u!95 &5345749637546309037
 Animator:
   serializedVersion: 3
