@@ -12,7 +12,6 @@ public class playerMovement : MonoBehaviour
     public bool IsBallBig = false;
     public bool Dead = false;
     public int level = 1;
-    private bool _isGrounded;
 
     private bool PAlive = true;
     public TextMeshProUGUI LevelText;
@@ -85,9 +84,7 @@ public class playerMovement : MonoBehaviour
             if (Input.GetAxis("Vertical") > 0.1 && PAlive && level > 1)
             {
                 RB.AddForce(new Vector2(0, JumpPower));
-                _isGrounded = false;
             }
-            Debug.Log("Grounded");
         }
     }
     private void OnCollisionEnter2D(Collision2D CoInfo)
